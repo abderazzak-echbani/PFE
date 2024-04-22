@@ -1,0 +1,31 @@
+    <div class="container-fluid card login-container ">
+        <form>
+            <h3 class="text-center mt-4">Espace Patients</h3>
+            <p class="text-center">Vous avez déjà pris un rendez-vous en ligne?</p>
+            <hr>
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessages.length">
+              <p *ngFor="let msg of errorMessages">{{msg}}</p>
+            </div>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="form2Example1">Email address</label>
+              <input [(ngModel)]="auhtRequest.email" type="email" name="email" class="form-control" />
+            </div>
+          
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="form2Example2">Password</label>
+              <input [(ngModel)]="auhtRequest.password" type="password" name="password" class="form-control" />
+            </div>
+                
+            <div class="row">
+                <div class=" d-flex justify-content-between">
+                    <button (click)="login()" type="button" class="btn btn-primary mb-3 ">Sign in</button>
+                    <div class="text-center">
+                    <p>Not have an account? <a class="btn btn-link" (click)="register()">Register</a></p>
+                    </div>
+                </div>
+            </div>
+          </form>
+        
+    </div>

@@ -1,0 +1,48 @@
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary justify-content-end" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Gestion RDVs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " [routerLink]="'/'">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="isAdmin" [routerLink]="'/admin/dash'">DashAdmiin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="!isAdmin && !isPatient" [routerLink]="'/user/patients'">Patients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="!isAdmin&& !isPatient" [routerLink]="'/user/medecins'">Medecins</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="!isAdmin && !isPatient " [routerLink]="'/user/rdvs'">Rendez-Vous</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " href="#" >Mon compte</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="isPatient" [routerLink]="'/rdvs-patient'">Mes rdvs</a>
+          </li>
+
+        </ul>
+
+      </div>
+      <div class="d-flex" >
+          <span style="color: white;">Hello {{userName}} </span> &nbsp;
+       </div>
+      <div>
+        <form class="d-flex" >
+         <a class="nav-link" (click)="logout()">
+           <b>
+            <span  style="color: red;cursor: pointer;"> Log out <i class="fa-solid fa-right-from-bracket"></i></span>
+           </b>
+         </a>
+       </form>
+       </div>
+    </div>
+  </nav>
